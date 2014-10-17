@@ -16,14 +16,37 @@
 
 
   <body>
-
+    <br/>
     <div class="container">
-      <h1>Hello, world!</h1>
-      <input type="text" ng-model="test">{{test}}
+      <h4 class="text-primary">Open your console to see what's happening when you click a button</h4>
+     
 
-      
+      <div ng-controller="parentController">
+        <h3>Parent Controller</h3>
+        <button ng-click="downClick('parent')" class="btn btn-warning">Click to $broadcast event down</button>
+        <button ng-click="upClick('parent')" class="btn btn-success">Click to $emit event up</button>
 
+        <hr/>
+
+        <div ng-controller="kidController">
+          <h3>Kid Controller</h3>
+          <button ng-click="downClick('kid')" class="btn btn-warning">Click to $broadcast event down</button>
+          <button ng-click="upClick('kid')" class="btn btn-success">Click to $emit event up</button>
+        
+          <hr/>
+
+           <div ng-controller="grandkidController">
+            <h3>GrandKid Controller</h3>
+            <button ng-click="downClick('grandkid')" class="btn btn-warning">Click to $broadcast event down</button>
+            <button ng-click="upClick('grandkid')" class="btn btn-success">Click to $emit event up</button>
+          </div>
+
+
+        </div>
+      </div>
     </div>
+
+    
     <script src="angular1.3-bootstrap3.2/angular.min.js"></script>
     <script src="app.js"></script>
   </body>
